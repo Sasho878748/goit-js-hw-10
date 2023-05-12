@@ -49,7 +49,7 @@ function renderCountriesMarkup(countries) {
       .join(', ');
     const markup = `
       <div class="country-card">
-        <img width=80 src="${country.flags.svg}" alt="${
+        <img src="${country.flags.svg}" alt="${
       country.name
     } flag" class="country-card__flag">
         <div class="country-card__info">
@@ -73,7 +73,7 @@ function renderCountriesMarkup(countries) {
     .map(country => {
       return `
         <li class="country-item">
-          <img width = 50 px src="${country.flags.svg}" alt="${country.name} flag" class="country-item__flag">
+          <img src="${country.flags.svg}" alt="${country.name} flag" class="country-item__flag">
           <p class="country-item__name">${country.name}</p>
         </li>
       `;
