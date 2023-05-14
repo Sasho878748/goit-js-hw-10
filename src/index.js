@@ -24,8 +24,11 @@ function onSearch(event) {
   fetchCountries(searchQuery)
     .then(renderCountriesMarkup)
     .catch(error => {
-      Notiflix.Notify.failure('Oops, there is no country with that name!');
-      clearMarkup();
+      if (error.message === '404') {
+        Notiflix.Notify.failure('Oops, there is no country with that name!');
+        clearMarkup();
+      }
+      return console.log(error);
     });
 }
 
@@ -39,6 +42,7 @@ function renderCountriesMarkup(countries) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
+    clearMarkup();
     return;
   }
 

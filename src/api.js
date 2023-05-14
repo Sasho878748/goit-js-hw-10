@@ -1,12 +1,10 @@
-function fetchCountries(searchQuery) {
+export function fetchCountries(searchQuery) {
   return fetch(`https://restcountries.com/v2/name/${searchQuery}`).then(
     response => {
       if (!response.ok) {
-        throw new Error('Error fetching data');
+        throw new Error(response.status);
       }
       return response.json();
     }
   );
 }
-
-export { fetchCountries };
